@@ -76,11 +76,19 @@ impl CustomApplicationHandler for Handler {
     }
 }
 
-pub fn select(drops: Rc<Drops>) -> Result<()> {
+/// With `software`, draws on the CPU from the start. The right-click task
+/// windows do, since they start their task before the window is shown, and
+/// the OpenGL first-frame watch in [`when_drawn`] must not restart a process
+/// whose task is already running. A window that small draws fast enough.
+pub fn select(drops: Rc<Drops>, software: bool) -> Result<()> {
     let icon = window_icon();
     let opened = drops.clone();
-    slint::BackendSelector::new()
-        .backend_name("winit".into())
+    let mut selector = slint::BackendSelector::new().backend_name("winit".into());
+    // SLINT_BACKEND, as the restart into software sets it, still wins.
+    if software && std::env::var_os(BACKEND_VAR).is_none() {
+        selector = selector.renderer_name("software".into());
+    }
+    selector
         .with_winit_custom_application_handler(Handler(drops))
         // With the `.slint` files' `icon:` set to an embedded PNG, Slint
         // 1.18 left X11 with an empty _NET_WM_ICON (checked with xprop), so

@@ -38,7 +38,7 @@ fn run(launch: Launch) -> Result<()> {
         _ => {}
     }
     let drops = Rc::new(backend::Drops::default());
-    backend::select(drops.clone())?;
+    backend::select(drops.clone(), matches!(launch, Launch::Task(_)))?;
     slint::set_xdg_app_id(APP_ID)?;
     match launch {
         Launch::Main(archive) => main_window::run(archive, drops),

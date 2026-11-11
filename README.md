@@ -44,7 +44,7 @@ No coding needed. **[Download for Windows](https://github.com/xevrion/hatchzip/r
 
 HatchZip shows whether the files will fit before it changes anything. The archive is used up as the files come out, so when it finishes, only the extracted files are left.
 
-**Extract here** puts an archive with one folder or one file at its top next to the archive. An archive with several files or folders at its top goes into a new folder named after it, so its files never mix with what is already there. The progress window closes when the extraction completes; to keep it open, clear **Close the progress window when extraction completes** in the app's Settings menu.
+**Extract here** puts an archive with one folder or one file at its top next to the archive. An archive with several files or folders at its top goes into a new folder named after it, so its files never mix with what is already there. The progress window only appears once a task has run for a second, asks a question, or has a result to show, so a small archive extracts without one, and it closes when the extraction completes; to keep it open, clear **Close the progress window when extraction completes** in the app's Settings menu.
 
 To keep the archive when there is room for both, choose **Extract here (keep archive)** in the right-click menu. To always keep archives, as other extractors do, clear **Remove the archive during extraction** in the app's Settings menu; every right-click entry then keeps the archive too. That is a normal extraction: the archive is not changed, and space is required for all extracted files.
 
