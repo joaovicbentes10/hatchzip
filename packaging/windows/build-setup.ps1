@@ -28,6 +28,9 @@ foreach ($f in 'hatchzip.exe', 'hatchzip-gui.exe') {
     if (-not (Test-Path (Join-Path $Payload $f))) { throw "$f is missing from $Payload" }
 }
 $iscc = Join-Path ${env:ProgramFiles(x86)} 'Inno Setup 6\ISCC.exe'
+# winget installs it for the current user when not run as administrator.
+$userIscc = Join-Path $env:LOCALAPPDATA 'Programs\Inno Setup 6\ISCC.exe'
+if (-not (Test-Path $iscc) -and (Test-Path $userIscc)) { $iscc = $userIscc }
 if (-not (Test-Path $iscc)) {
     choco install innosetup --yes --no-progress | Out-Host
 }
