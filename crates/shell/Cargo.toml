@@ -18,6 +18,15 @@ anyhow.workspace = true
 
 [target."cfg(windows)".dependencies]
 winreg = "0.56.0"
+# Registers the Windows 11 menu's identity package; already in the tree
+# through winit and rfd, at this version.
+windows = { version = "0.62.2", features = [
+    "ApplicationModel",
+    "Foundation",
+    "Foundation_Collections",
+    "Management_Deployment",
+    "Win32_System_Com",
+] }
 
 [dev-dependencies]
 tempfile.workspace = true

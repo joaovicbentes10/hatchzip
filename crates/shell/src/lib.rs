@@ -11,6 +11,7 @@ use std::path::{Path, PathBuf};
 
 use anyhow::Result;
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct Action {
     /// Stable identifier, used in file and registry key names.
     pub id: &'static str,
@@ -47,6 +48,16 @@ pub const ACTIONS: &[Action] = &[
         flag: "--test",
     },
 ];
+
+/// The Windows 11 menu's command, implemented by `hatchzip_explorer.dll` and
+/// declared in `packaging/windows/explorer/AppxManifest.xml`. Never change:
+/// installed packages point at it.
+pub const EXPLORER_CLSID: &str = "77539ABD-F880-4E8C-BED0-5047FE4CE5A3";
+
+/// The identity package that puts that command in Explorer's modern menu,
+/// next to `hatchzip-gui.exe`.
+pub const EXPLORER_PACKAGE: &str = "HatchZip.ContextMenu";
+pub const EXPLORER_PACKAGE_FILE: &str = "hatchzip-explorer.msix";
 
 /// File types the menu appears on. `.001` covers the first part of split
 /// archives, which is the part HatchZip is opened with. Windows sees only the

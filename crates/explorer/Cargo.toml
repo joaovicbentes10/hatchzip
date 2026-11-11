@@ -1,0 +1,36 @@
+[package]
+name = "hatchzip-explorer"
+description = "The HatchZip submenu in the Windows 11 context menu: an IExplorerCommand that starts hatchzip-gui."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+publish = false
+
+[lib]
+# hatchzip_explorer.dll, loaded by Explorer's COM surrogate from the folder
+# the identity package points at. Empty on other systems.
+crate-type = ["cdylib"]
+
+[features]
+rar = ["hatchzip-shell/rar"]
+
+[target."cfg(windows)".dependencies]
+# Only for the names the GUI gives folders and split sets, so the menu says
+# what the GUI will do. The engine never runs in Explorer.
+hatchzip-core = { path = "../core", default-features = false }
+hatchzip-shell = { path = "../shell" }
+# Already in the tree through winit and rfd, at this version.
+windows = { version = "0.62.2", features = [
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_LibraryLoader",
+    "Win32_UI_Shell",
+    "Win32_UI_Shell_Common",
+] }
+windows-core = "0.62.2"
+
+[target."cfg(windows)".dev-dependencies]
+tempfile.workspace = true

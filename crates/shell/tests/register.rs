@@ -186,3 +186,36 @@ fn macos_says_it_is_not_supported_yet() {
     assert!(register(&dirs, Path::new("/Applications/HatchZip.app")).is_err());
     assert!(!is_registered(&dirs));
 }
+
+/// The Windows 11 menu comes from the identity package's manifest, which
+/// must name the DLL's class and every archive type the classic menu can.
+#[test]
+fn windows_11_manifest_covers_every_archive_type() {
+    let manifest = std::fs::read_to_string(concat!(
+        env!("CARGO_MANIFEST_DIR"),
+        "/../../packaging/windows/explorer/AppxManifest.xml"
+    ))
+    .unwrap();
+    let verb = format!(
+        "<desktop5:Verb Id=\"HatchZip\" Clsid=\"{}\" />",
+        hatchzip_shell::EXPLORER_CLSID
+    );
+    for ext in hatchzip_shell::ALL_EXTENSIONS {
+        assert!(
+            manifest.contains(&format!("<desktop5:ItemType Type=\".{ext}\">{verb}")),
+            ".{ext}"
+        );
+    }
+    assert_eq!(
+        manifest.matches("<desktop5:ItemType ").count(),
+        hatchzip_shell::ALL_EXTENSIONS.len()
+    );
+    assert!(manifest.contains(&format!(
+        "<com:Class Id=\"{}\" Path=\"hatchzip_explorer.dll\"",
+        hatchzip_shell::EXPLORER_CLSID
+    )));
+    assert!(manifest.contains(&format!(
+        "<Identity Name=\"{}\" Publisher=\"{{PUBLISHER}}\" Version=\"{{VERSION}}\"",
+        hatchzip_shell::EXPLORER_PACKAGE
+    )));
+}

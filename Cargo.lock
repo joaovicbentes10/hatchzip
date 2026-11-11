@@ -2019,6 +2019,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "hatchzip-explorer"
+version = "0.1.10"
+dependencies = [
+ "hatchzip-core",
+ "hatchzip-shell",
+ "tempfile",
+ "windows",
+ "windows-core",
+]
+
+[[package]]
 name = "hatchzip-gui"
 version = "0.1.10"
 dependencies = [
@@ -2048,6 +2059,7 @@ version = "0.1.10"
 dependencies = [
  "anyhow",
  "tempfile",
+ "windows",
  "winreg",
 ]
 

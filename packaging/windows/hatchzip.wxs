@@ -67,6 +67,12 @@
       <File Id="LicenseMit" Source="$(var.Payload)\LICENSE-MIT.txt" KeyPath="no" />
       <File Id="LicenseApache" Source="$(var.Payload)\LICENSE-APACHE.txt" KeyPath="no" />
       <File Id="LicenseUnrar" Source="$(var.Payload)\LICENSE-UNRAR.txt" KeyPath="no" />
+      <?ifdef ExplorerMenu ?>
+      <!-- The Windows 11 menu: registered by register-shell, see
+           build-explorer-package.ps1. -->
+      <File Id="ExplorerDll" Source="$(var.Payload)\hatchzip_explorer.dll" KeyPath="no" />
+      <File Id="ExplorerPackage" Source="$(var.Payload)\hatchzip-explorer.msix" KeyPath="no" />
+      <?endif ?>
       <RemoveFolder Id="RemoveInstallFolder" On="uninstall" />
       <!-- Only removed when empty, which it rarely is. -->
       <RemoveFolder Id="RemoveProgramsDir" Directory="ProgramsDir" On="uninstall" />

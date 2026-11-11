@@ -16,6 +16,10 @@ $WixVersion = '5.0.2'
 # whole folder. A file added to the zip must be added there too.
 $expected = 'hatchzip.exe', 'hatchzip-gui.exe', 'hatchzip-completion.ps1', 'README.md',
     'LICENSE-MIT.txt', 'LICENSE-APACHE.txt', 'LICENSE-UNRAR.txt'
+# The Windows 11 menu's DLL and package come together or not at all.
+$explorer = 'hatchzip_explorer.dll', 'hatchzip-explorer.msix'
+$hasExplorer = Test-Path (Join-Path $Payload $explorer[0])
+if ($hasExplorer) { $expected += $explorer }
 $found = Get-ChildItem -Path $Payload -Recurse -File | ForEach-Object { $_.FullName.Substring((Resolve-Path $Payload).Path.Length + 1) }
 $missing = $expected | Where-Object { $found -notcontains $_ }
 $extra = $found | Where-Object { $expected -notcontains $_ }
@@ -38,6 +42,7 @@ $out = Join-Path $root 'dist\HatchZip-x64.msi'
 & wix build -arch x64 `
     -d "Payload=$((Resolve-Path $Payload).Path)" `
     -d "Version=$msiVersion" `
+    @(if ($hasExplorer) { '-d', 'ExplorerMenu=1' }) `
     -o $out (Join-Path $PSScriptRoot 'hatchzip.wxs')
 if ($LASTEXITCODE) { throw "wix build exited with $LASTEXITCODE" }
 # WiX leaves a .wixpdb with debug data next to the msi; it isn't a download.

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The identity package behind the Windows 11 context menu. It holds no
+  program: it gives the installed folder a package identity, so Explorer
+  loads hatchzip_explorer.dll from there and shows its commands in the
+  modern menu. build-explorer-package.ps1 fills in the version and
+  publisher; the publisher must match the subject of the signing
+  certificate. Every extension in hatchzip_shell::ALL_EXTENSIONS is
+  listed, which a test in crates/shell checks.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:desktop5="http://schemas.microsoft.com/appx/manifest/desktop/windows10/5"
+  xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+  IgnorableNamespaces="uap uap10 rescap com desktop4 desktop5 desktop6">
+  <Identity Name="HatchZip.ContextMenu" Publisher="{PUBLISHER}" Version="{VERSION}" ProcessorArchitecture="neutral" />
+  <Properties>
+    <DisplayName>HatchZip</DisplayName>
+    <PublisherDisplayName>HatchZip</PublisherDisplayName>
+    <Logo>Assets\logo.png</Logo>
+    <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
+    <!-- The GUI started from the menu inherits the package identity. Without
+         these its settings and its classic menu keys would go to a private
+         copy of AppData and the registry instead of the real ones. -->
+    <desktop6:FileSystemWriteVirtualization>disabled</desktop6:FileSystemWriteVirtualization>
+    <desktop6:RegistryWriteVirtualization>disabled</desktop6:RegistryWriteVirtualization>
+  </Properties>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Dependencies>
+    <!-- Windows 10 keeps the classic menu only, so the package refuses it. -->
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.22000.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="unvirtualizedResources" />
+  </Capabilities>
+  <Applications>
+    <Application Id="HatchZip" Executable="hatchzip-gui.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
+      <uap:VisualElements AppListEntry="none" DisplayName="HatchZip" Description="Extract huge archives in place" BackgroundColor="transparent" Square150x150Logo="Assets\logo.png" Square44x44Logo="Assets\logo.png" />
+      <Extensions>
+        <com:Extension Category="windows.comServer">
+          <com:ComServer>
+            <com:SurrogateServer DisplayName="HatchZip context menu">
+              <com:Class Id="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" Path="hatchzip_explorer.dll" ThreadingModel="STA" />
+            </com:SurrogateServer>
+          </com:ComServer>
+        </com:Extension>
+        <desktop4:Extension Category="windows.fileExplorerContextMenus">
+          <desktop4:FileExplorerContextMenus>
+            <desktop5:ItemType Type=".zip"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".7z"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".tar"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".tgz"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".gz"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".txz"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".xz"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".001"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".rar"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+            <desktop5:ItemType Type=".r00"><desktop5:Verb Id="HatchZip" Clsid="77539ABD-F880-4E8C-BED0-5047FE4CE5A3" /></desktop5:ItemType>
+          </desktop4:FileExplorerContextMenus>
+        </desktop4:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+</Package>

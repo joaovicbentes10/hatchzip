@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/core", "crates/cli", "crates/shell", "crates/gui"]
+members = ["crates/core", "crates/cli", "crates/shell", "crates/gui", "crates/explorer"]
 # The fuzz targets are their own workspace, built with nightly and cargo-fuzz.
 exclude = ["fuzz"]
 
