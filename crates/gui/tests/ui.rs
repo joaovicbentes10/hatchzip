@@ -1213,6 +1213,11 @@ fn windows_end_to_end() {
         renderer_name: Some("software".into()),
     })))
     .unwrap();
+    // The flows find controls by their English labels, whatever language
+    // the machine running them is in. The catalogs load with the first
+    // component.
+    drop(hatchzip_gui::MainWindow::new().unwrap());
+    slint::select_bundled_translation("en").unwrap();
 
     for (scheme, tag) in [(ColorScheme::Light, "light"), (ColorScheme::Dark, "dark")] {
         minimum_layout_flow(scheme, tag);

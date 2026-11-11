@@ -1,5 +1,5 @@
 //! One file per system, each providing `current_dirs`, `register`,
-//! `unregister` and `is_registered`.
+//! `unregister`, `is_registered` and `portuguese`.
 
 #[cfg(target_os = "linux")]
 mod linux;

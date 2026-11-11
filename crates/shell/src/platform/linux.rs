@@ -147,3 +147,7 @@ pub fn unregister(dirs: &Dirs) -> Result<()> {
 pub fn is_registered(dirs: &Dirs) -> bool {
     kde_file(dirs).exists()
 }
+
+pub fn portuguese() -> bool {
+    false
+}

@@ -15,8 +15,27 @@ pub struct Action {
     /// Stable identifier, used in file and registry key names.
     pub id: &'static str,
     pub label: &'static str,
+    /// The label on a Windows set to Portuguese, as WinRAR words its own.
+    pub label_pt: &'static str,
     /// The GUI's flags, put before the archive paths.
     pub flag: &'static str,
+}
+
+impl Action {
+    /// The label in Explorer's language: Portuguese or English.
+    pub fn title(&self, portuguese: bool) -> &'static str {
+        if portuguese {
+            self.label_pt
+        } else {
+            self.label
+        }
+    }
+}
+
+/// Whether Explorer's menus are in Portuguese. Always false outside Windows,
+/// whose file managers get the English labels.
+pub fn portuguese() -> bool {
+    platform::portuguese()
 }
 
 pub const ACTIONS: &[Action] = &[
@@ -24,26 +43,31 @@ pub const ACTIONS: &[Action] = &[
     Action {
         id: "extract-files",
         label: "Extract files…",
+        label_pt: "Extrair arquivos…",
         flag: "--extract-files",
     },
     Action {
         id: "extract-here",
         label: "Extract here",
+        label_pt: "Extrair aqui",
         flag: "--extract-here",
     },
     Action {
         id: "extract-here-keep",
         label: "Extract here (keep archive)",
+        label_pt: "Extrair aqui (manter arquivo)",
         flag: "--keep-archive --extract-here",
     },
     Action {
         id: "extract-to",
         label: "Extract to a new folder",
+        label_pt: "Extrair para uma nova pasta",
         flag: "--extract-to",
     },
     Action {
         id: "test",
         label: "Test archive",
+        label_pt: "Testar arquivo",
         flag: "--test",
     },
 ];

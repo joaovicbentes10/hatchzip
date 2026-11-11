@@ -18,6 +18,9 @@ anyhow.workspace = true
 
 [target."cfg(windows)".dependencies]
 winreg = "0.56.0"
+# The display language, for the menu labels; already in the tree through
+# winit and rfd, at this version.
+windows = { version = "0.62.2", features = ["Win32_Globalization"] }
 
 [dev-dependencies]
 tempfile.workspace = true

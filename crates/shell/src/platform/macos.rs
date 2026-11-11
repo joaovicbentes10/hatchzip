@@ -26,3 +26,7 @@ pub fn unregister(_dirs: &Dirs) -> Result<()> {
 pub fn is_registered(_dirs: &Dirs) -> bool {
     false
 }
+
+pub fn portuguese() -> bool {
+    false
+}

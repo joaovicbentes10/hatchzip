@@ -1,0 +1,378 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Size"
+msgstr "Tamanho"
+
+msgid "File"
+msgstr "Arquivo"
+
+msgid "Open…"
+msgstr "Abrir…"
+
+msgid "Quit"
+msgstr "Sair"
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Verify archive before extracting"
+msgstr "Verificar o arquivo compactado antes de extrair"
+
+msgid "Remove the archive during extraction"
+msgstr "Remover o arquivo compactado durante a extração"
+
+msgid "Close the progress window when extraction completes"
+msgstr "Fechar a janela de progresso ao terminar a extração"
+
+msgid "Help"
+msgstr "Ajuda"
+
+msgid "Check for updates"
+msgstr "Procurar atualizações"
+
+msgid "About HatchZip"
+msgstr "Sobre o HatchZip"
+
+msgid "Drop the archive to open it"
+msgstr "Solte o arquivo compactado para abri-lo"
+
+msgid "No archive open"
+msgstr "Nenhum arquivo compactado aberto"
+
+msgid "The archive is removed progressively during extraction, so only the space for the extracted files is required."
+msgstr "O arquivo compactado é removido aos poucos durante a extração, então só é preciso espaço para os arquivos extraídos."
+
+msgid "Open archive…"
+msgstr "Abrir arquivo compactado…"
+
+msgid "Open another archive…"
+msgstr "Abrir outro arquivo compactado…"
+
+msgid "All entries have been extracted."
+msgstr "Todas as entradas foram extraídas."
+
+msgid "This archive is empty."
+msgstr "Este arquivo compactado está vazio."
+
+msgid "Extract to"
+msgstr "Extrair para"
+
+msgid "Browse…"
+msgstr "Procurar…"
+
+msgid "Reserved space"
+msgstr "Espaço reservado"
+
+msgid "GB. Enter a number, such as 2 or 0.5."
+msgstr "GB. Digite um número, como 2 ou 0.5."
+
+msgid "The archive is removed progressively during extraction. An interrupted extraction can be resumed."
+msgstr "O arquivo compactado é removido aos poucos durante a extração. Uma extração interrompida pode ser retomada."
+
+msgid "The archive is kept unchanged, so space is required for all extracted files. An interrupted extraction can be resumed."
+msgstr "O arquivo compactado é mantido sem alterações, então é preciso espaço para todos os arquivos extraídos. Uma extração interrompida pode ser retomada."
+
+msgid "Test"
+msgstr "Testar"
+
+msgid "Restore archive"
+msgstr "Restaurar arquivo compactado"
+
+msgid "Extract"
+msgstr "Extrair"
+
+msgid "Resume extraction"
+msgstr "Retomar extração"
+
+msgid "Finish"
+msgstr "Concluir"
+
+msgid "Or drag an archive onto this window. Supported formats: ZIP, 7z, tar, tar.gz, tar.xz, and split archives."
+msgstr "Ou arraste um arquivo compactado para esta janela. Formatos compatíveis: ZIP, 7z, tar, tar.gz, tar.xz e arquivos divididos."
+
+msgid "Or drag an archive onto this window. Supported formats: ZIP, 7z, tar, tar.gz, tar.xz, RAR, and split archives."
+msgstr "Ou arraste um arquivo compactado para esta janela. Formatos compatíveis: ZIP, 7z, tar, tar.gz, tar.xz, RAR e arquivos divididos."
+
+msgid "Opening {}…"
+msgstr "Abrindo {}…"
+
+msgid "Unable to open {}"
+msgstr "Não foi possível abrir {}"
+
+msgid "This archive is partially extracted to {}."
+msgstr "Este arquivo compactado foi extraído em parte para {}."
+
+msgid " The archive is kept."
+msgstr " O arquivo compactado é mantido."
+
+msgid "All entries have been extracted to {}. Select Finish to remove the remaining temporary files."
+msgstr "Todas as entradas foram extraídas para {}. Clique em Concluir para remover os arquivos temporários restantes."
+
+msgid "Show in the Explorer context menu"
+msgstr "Mostrar no menu de contexto do Explorador de Arquivos"
+
+msgid "Show in the file manager's context menu"
+msgstr "Mostrar no menu de contexto do gerenciador de arquivos"
+
+msgid "Show in the Finder context menu"
+msgstr "Mostrar no menu de contexto do Finder"
+
+msgid "Open archive"
+msgstr "Abrir arquivo compactado"
+
+msgid "Archives"
+msgstr "Arquivos compactados"
+
+msgid "All files"
+msgstr "Todos os arquivos"
+
+msgid "Select destination folder"
+msgstr "Selecionar pasta de destino"
+
+msgid "Context menu entries added."
+msgstr "Entradas adicionadas ao menu de contexto."
+
+msgid "Context menu entries removed."
+msgstr "Entradas removidas do menu de contexto."
+
+msgid "No entries remaining"
+msgstr "Nenhuma entrada restante"
+
+msgid "Reading archive… {}%"
+msgstr "Lendo o arquivo compactado… {}%"
+
+msgid "{} archive"
+msgstr "arquivo {}"
+
+msgid "{} entry"
+msgid_plural "{} entries"
+msgstr[0] "{} entrada"
+msgstr[1] "{} entradas"
+
+msgid "{} in {} remaining"
+msgstr "{0} restantes em {1}"
+
+msgid "{} uncompressed"
+msgstr "Tamanho descompactado: {}"
+
+msgid "Disk space"
+msgstr "Espaço em disco"
+
+msgid "Calculating…"
+msgstr "Calculando…"
+
+msgid "Back"
+msgstr "Voltar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Pausing…"
+msgstr "Pausando…"
+
+msgid "Pause"
+msgstr "Pausar"
+
+msgid "Resume"
+msgstr "Retomar"
+
+msgid "Check again"
+msgstr "Verificar de novo"
+
+msgid "Retry"
+msgstr "Tentar de novo"
+
+msgid "Open folder"
+msgstr "Abrir pasta"
+
+msgid "Password required"
+msgstr "Senha necessária"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Incorrect password."
+msgstr "Senha incorreta."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Replace or skip files"
+msgstr "Substituir ou ignorar arquivos"
+
+msgid "Keep both"
+msgstr "Manter os dois"
+
+msgid "Skip"
+msgstr "Ignorar"
+
+msgid "Replace"
+msgstr "Substituir"
+
+msgid "Enter the password for {}."
+msgstr "Digite a senha de {}."
+
+msgid "Available"
+msgstr "Disponível"
+
+msgid "Required, archive removed"
+msgstr "Necessário (arquivo compactado removido)"
+
+msgid "Required, archive kept"
+msgstr "Necessário (arquivo compactado mantido)"
+
+msgid "Reserved"
+msgstr "Reservado"
+
+msgid "Available after extraction"
+msgstr "Disponível após a extração"
+
+msgid "Restore complete"
+msgstr "Restauração concluída"
+
+msgid "Restore failed"
+msgstr "Falha na restauração"
+
+msgid "Restoring {}"
+msgstr "Restaurando {}"
+
+msgid "Test complete"
+msgstr "Teste concluído"
+
+msgid "Test failed"
+msgstr "Falha no teste"
+
+msgid "Testing {}"
+msgstr "Testando {}"
+
+msgid "Extraction complete"
+msgstr "Extração concluída"
+
+msgid "Extraction paused"
+msgstr "Extração pausada"
+
+msgid "Extraction failed"
+msgstr "Falha na extração"
+
+msgid "Insufficient disk space"
+msgstr "Espaço em disco insuficiente"
+
+msgid "Extracting {}"
+msgstr "Extraindo {}"
+
+msgid "Checking disk space…"
+msgstr "Verificando o espaço em disco…"
+
+msgid "Converting it back to a standard archive. Extracted files are kept."
+msgstr "Convertendo de volta para um arquivo compactado comum. Os arquivos extraídos são mantidos."
+
+msgid "Verifying every entry. No files are written."
+msgstr "Verificando todas as entradas. Nenhum arquivo é gravado."
+
+msgid "Pausing after the current batch…"
+msgstr "Pausando depois do lote atual…"
+
+msgid "Verifying archive before extracting…"
+msgstr "Verificando o arquivo compactado antes de extrair…"
+
+msgid "Progress is saved. The extraction can be resumed now or later."
+msgstr "O progresso foi salvo. A extração pode ser retomada agora ou depois."
+
+msgid "All entries were extracted. The archive was kept."
+msgstr "Todas as entradas foram extraídas. O arquivo compactado foi mantido."
+
+msgid "All entries were extracted. The archive was removed."
+msgstr "Todas as entradas foram extraídas. O arquivo compactado foi removido."
+
+msgid "Test passed: 1 entry verified."
+msgid_plural "Test passed: {} entries verified."
+msgstr[0] "Teste aprovado: 1 entrada verificada."
+msgstr[1] "Teste aprovado: {} entradas verificadas."
+
+msgid "'{}' already exists in {}."
+msgstr "'{}' já existe em {}."
+
+msgid "Replace deletes the existing file when the extraction completes. Skip keeps it, and the archive's copy is not kept. Keep both keeps it and adds the archive's copy with a number after its name."
+msgstr "Substituir apaga o arquivo existente quando a extração termina. Ignorar o mantém, e a cópia do arquivo compactado não é mantida. Manter os dois o mantém e adiciona a cópia do arquivo compactado com um número depois do nome."
+
+msgid "Replace deletes the existing file when the extraction completes. Skip keeps it. Keep both keeps it and adds the archive's copy with a number after its name."
+msgstr "Substituir apaga o arquivo existente quando a extração termina. Ignorar o mantém. Manter os dois o mantém e adiciona a cópia do arquivo compactado com um número depois do nome."
+
+msgid "Do the same for the next file"
+msgid_plural "Do the same for the next {} files"
+msgstr[0] "Fazer o mesmo para o próximo arquivo"
+msgstr[1] "Fazer o mesmo para os próximos {} arquivos"
+
+msgid "Destination: {}"
+msgstr "Destino: {}"
+
+msgid "{} of {}"
+msgstr "{0} de {1}"
+
+msgid "Archive remaining: {}"
+msgstr "Restante do arquivo compactado: {}"
+
+msgid "Waiting for disk"
+msgstr "Aguardando o disco"
+
+msgid "{}/s, {} remaining"
+msgstr "{}/s, faltam {}"
+
+msgid "less than 5 seconds"
+msgstr "menos de 5 segundos"
+
+msgid "{} second"
+msgid_plural "{} seconds"
+msgstr[0] "{} segundo"
+msgstr[1] "{} segundos"
+
+msgid "{} minute"
+msgid_plural "{} minutes"
+msgstr[0] "{} minuto"
+msgstr[1] "{} minutos"
+
+msgid "{} hour"
+msgid_plural "{} hours"
+msgstr[0] "{} hora"
+msgstr[1] "{} horas"
+
+msgid "the 1 entry"
+msgid_plural "the {} entries"
+msgstr[0] "a única entrada"
+msgstr[1] "as {} entradas"
+
+msgid "Extraction progress discarded. The archive was not modified. Extracted files remain in {}."
+msgstr "O progresso da extração foi descartado. O arquivo compactado não foi alterado. Os arquivos extraídos continuam em {}."
+
+msgid "Archive restored. It contains {} not yet extracted. Extracted files remain in {}."
+msgstr "Arquivo compactado restaurado. Ainda falta extrair {}. Os arquivos extraídos continuam em {}."
+
+msgid "1 replaced file remains in {1}, since the file extracted at its path is no longer in the archive."
+msgid_plural "{} replaced files remain in {}, since the files extracted at their paths are no longer in the archive."
+msgstr[0] "1 arquivo substituído continua em {1}, porque o arquivo extraído no caminho dele não está mais no arquivo compactado."
+msgstr[1] "{} arquivos substituídos continuam em {}, porque os arquivos extraídos nos caminhos deles não estão mais no arquivo compactado."
+
+msgid "link"
+msgstr "link"
+
+msgid "{} Progress is saved; the extraction can be resumed."
+msgstr "{} O progresso foi salvo; a extração pode ser retomada."
+
+msgid "Folder"
+msgstr "Pasta"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "{}. Turn off \"Remove the archive during extraction\" to extract it and keep the archive"
+msgstr "{}. Desative \"Remover o arquivo compactado durante a extração\" para extrair e manter o arquivo compactado"

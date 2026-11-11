@@ -12,6 +12,7 @@ use slint::{CloseRequestResponse, ComponentHandle};
 
 use crate::TaskWindow;
 use crate::args::{TaskArgs, TaskKind};
+use crate::main_window::localized;
 use crate::runner::Runner;
 use crate::settings::Settings;
 use crate::task::Task;
@@ -30,7 +31,8 @@ pub fn output_for(kind: &TaskKind, primary: &Path) -> Option<PathBuf> {
 
 pub fn run(mut args: TaskArgs) -> Result<()> {
     if args.kind == TaskKind::ExtractFiles(None) {
-        let mut dialog = rfd::FileDialog::new().set_title("Select destination folder");
+        let title = crate::MainWindow::new()?.invoke_destination_title();
+        let mut dialog = rfd::FileDialog::new().set_title(title.as_str());
         if let Some(dir) = args
             .archives
             .first()
@@ -111,14 +113,17 @@ pub fn build(args: TaskArgs, settings: Settings) -> Result<(TaskWindow, impl FnO
         anyhow::bail!("no archive given");
     };
 
+    // Never shown: its `@tr` functions put the texts in the app's language,
+    // as the main window shows them.
+    let words = crate::MainWindow::new()?;
+    ui.set_task(localized(&words, task));
     let weak = ui.as_weak();
     let runner = Runner::install(move |task: &Task| {
         if let Some(ui) = weak.upgrade() {
-            ui.set_task(task.view.clone());
+            ui.set_task(localized(&words, task));
             ui.set_plan(task.plan.clone());
         }
     });
-    ui.set_task(task.view.clone());
     if settings.close_when_done {
         // Hiding the only window ends the app, as the close button does.
         let weak = ui.as_weak();

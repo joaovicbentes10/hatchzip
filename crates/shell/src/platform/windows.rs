@@ -44,13 +44,20 @@ pub fn register(_dirs: &Dirs, gui: &Path) -> Result<Vec<String>> {
         for (i, a) in ACTIONS.iter().enumerate() {
             // Explorer orders submenu items by key name.
             let (item, _) = menu.create_subkey(format!(r"shell\{:02}{}", i + 1, a.id))?;
-            item.set_value("MUIVerb", &a.label)?;
+            item.set_value("MUIVerb", &a.title(portuguese()))?;
             let (command, _) = item.create_subkey("command")?;
             command.set_value("", &format!("\"{exe}\" {} \"%1\"", a.flag))?;
         }
         written.push(format!("Explorer: .{ext} files"));
     }
     Ok(written)
+}
+
+/// The user's display language, which Explorer's menus are in.
+pub fn portuguese() -> bool {
+    const LANG_PORTUGUESE: u16 = 0x16;
+    (unsafe { windows::Win32::Globalization::GetUserDefaultUILanguage() } & 0x3ff)
+        == LANG_PORTUGUESE
 }
 
 pub fn unregister(_dirs: &Dirs) -> Result<()> {

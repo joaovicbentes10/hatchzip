@@ -104,6 +104,11 @@ fn keeping_does_not_fit_but_removing_does() {
         renderer_name: Some("software".into()),
     })))
     .unwrap();
+    // The flows find controls by their English labels, whatever language
+    // the machine running them is in. The catalogs load with the first
+    // component.
+    drop(hatchzip_gui::MainWindow::new().unwrap());
+    slint::select_bundled_translation("en").unwrap();
 
     for ((scheme, tag), archive) in [(ColorScheme::Light, "light"), (ColorScheme::Dark, "dark")]
         .into_iter()
